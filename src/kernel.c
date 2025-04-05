@@ -66,5 +66,7 @@ void kernel_main() {
 
     //Intialize the Interrupt descriptor Table
     idt_init();
-    outb(0x60, 0xff);
+
+    //Enable System Interrupts
+    enable_interrupts();
 }

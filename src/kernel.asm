@@ -21,6 +21,19 @@ _start:
     in al,0x92
     or al, 2
     out 0x92, al
+
+    ;Remap the master PIC
+    mov al, 00010001b
+    out 0x20, al    ; Tell master PIC
+    
+    mov al, 0x20    ; Interrupt 0x20 is where master ISR should start
+    out 0x21, al
+
+    mov al, 00000001b   ; Setting back to x86 mode!
+    out 0x21, al
+    ; End Remap of master PIC
+    
+
     call kernel_main
     
     jmp $  ; Hang in protected mode
