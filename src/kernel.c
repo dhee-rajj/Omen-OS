@@ -3,6 +3,7 @@
 #include <stddef.h>
 #include "idt/idt.h"
 #include "io/io.h"
+#include "memory/heap/kheap.h"
 
 uint16_t *video_mem = 0;
 uint16_t terminal_row = 0;
@@ -63,6 +64,9 @@ void print(const char* str) {
 void kernel_main() {
     terminal_intialize();
     print("HI, WELCOME TO OMEN OS\n");
+
+    //Intialize heap
+    kheap_init();
 
     //Intialize the Interrupt descriptor Table
     idt_init();

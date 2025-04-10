@@ -19,3 +19,11 @@ void kheap_init() {
         print("Failed to create heap!\n");
     }
 }
+
+void* kheap_malloc(size_t size) {
+    return heap_malloc(&kernel_heap, size);
+}
+
+void kfree(void* ptr) {
+    heap_free(&kernel_heap, ptr);
+}
