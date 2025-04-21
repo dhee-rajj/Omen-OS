@@ -16,7 +16,7 @@ insb:
     pop ebp
     ret
 
-isnw:
+insw:
     push ebp
     mov ebp, esp
 
