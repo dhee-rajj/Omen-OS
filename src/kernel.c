@@ -6,21 +6,13 @@
 #include "memory/heap/kheap.h"
 #include "memory/paging/paging.h"
 #include "disk/disk.h"
+#include "string/string.h"
+#include "fs/pparser.h"
 
 uint16_t *video_mem = 0;
 uint16_t terminal_row = 0;
 uint16_t terminal_col = 0;
 
-
-int strlen(const char* str) {
-    int len = 0;
-    while(*str) {
-        len++;
-        str++;
-    }
-    return len;
-
-}
 
 uint16_t terminal_makechar(char c, char color) {
     return (color << 8) | c;
